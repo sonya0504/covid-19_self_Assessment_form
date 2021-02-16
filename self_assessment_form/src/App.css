@@ -1,16 +1,16 @@
+@font-face {
+  font-family: 'SF UI Display';
+  src: local('SF UI Display'), url(./fonts/sf-ui-display-medium-58646be638f96.otf) format('truetype');
+}
+
+@font-face {
+  font-family: 'SF UI Text';
+  src: local('SF UI Text'), url(./fonts/SFUIText-Regular.ttf) format('truetype');
+}
+
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  font-family: 'SF UI Display';
 }
 
 .App-header {
@@ -24,15 +24,3 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
