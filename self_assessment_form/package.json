@@ -3,6 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@atlaskit/button": "^15.1.4",
+    "@atlaskit/checkbox": "^12.0.0",
+    "@atlaskit/form": "^8.2.0",
+    "@atlaskit/radio": "^5.0.3",
+    "@atlaskit/section-message": "^5.0.9",
+    "@atlaskit/textfield": "^5.0.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/react-fontawesome": "^0.1.14",

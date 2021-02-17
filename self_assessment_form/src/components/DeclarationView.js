@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Header';
-import InfoBox from './InfoBox';
-import Form from './Form';
+import SectionMessage from './SectionMessage'
+import CustomForm from './Form';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -10,13 +10,19 @@ const Container = styled.div`
     align-items: center;
 `;
 
+const SectionMessageWrapper = styled.div`
+    width: 70%
+`;
+
 const DeclarationView = () => {
     return (
         <>
             <Header />
             <Container>
-                <InfoBox />
-                <Form /> 
+                <SectionMessageWrapper>
+                    <SectionMessage />
+                </SectionMessageWrapper>
+                <CustomForm /> 
             </Container>
             
         </>
