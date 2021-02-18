@@ -9,6 +9,7 @@
     "@atlaskit/radio": "^5.0.3",
     "@atlaskit/section-message": "^5.0.9",
     "@atlaskit/textfield": "^5.0.0",
+    "@emotion/core": "^11.0.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/react-fontawesome": "^0.1.14",
