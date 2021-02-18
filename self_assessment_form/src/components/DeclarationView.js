@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Header';
-import SectionMessage from './SectionMessage'
-import CustomForm from './Form';
+import SectionMessage from './SectionMessage';
+import FormSection from './FormSection';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -22,7 +22,7 @@ const DeclarationView = () => {
                 <SectionMessageWrapper>
                     <SectionMessage />
                 </SectionMessageWrapper>
-                <CustomForm /> 
+                <FormSection /> 
             </Container>
             
         </>

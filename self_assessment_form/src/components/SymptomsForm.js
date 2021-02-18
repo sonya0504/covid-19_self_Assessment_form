@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import Title from './Title.js';
+import TextInfo from './TextInfo';
 import Form, { Field, FormFooter } from '@atlaskit/form';
 import Button from '@atlaskit/button';
 import TextField from '@atlaskit/textfield';
-import ChooseSection from './RadioInputComponent/ChooseSection';
-import RadioButton from './RadioInputComponent/RadioInputComponent';
-import Checkbox from './InputComponent/InputComponent'
+import ChooseSection from './ChooseSection';
+import RadioButton from './RadioInputComponent';
+import Checkbox from './InputComponent';
+import axios from 'axios';
 
 const chooseOption = (e) => {
     console.log('btn', e)
@@ -15,7 +18,22 @@ const chooseCheckbox = (e) => {
     console.log('check', e)
 }
 
-const MyForm = () => (
+const SymptomsForm = () => {
+
+const [symptoms, setSymptoms] = useState([]);
+
+useEffect(() => {
+  axios.get('https://covid-19-self-assessment-form-default-rtdb.firebaseio.com/symptoms.json')
+    .then(res => {
+      setSymptoms(res.data);
+      console.log('res', res);
+    })
+    .catch(err => {
+      console.log('Error:', err)
+    })
+}, [])
+  
+  return (
   <Form onSubmit={data => console.log('form data', data)}>
     {({ formProps }) => (
       <form {...formProps}>
@@ -48,13 +66,11 @@ const MyForm = () => (
         <Title>COVID-19 symptoms</Title>
         <TextInfo>Please reflect on any disturbing symptoms you’re experiencing now or have been in the last 14 days.</TextInfo>
         <ChooseSection title="Do you have any of the following symptoms?" isRequired={true}>
-            <Checkbox value='fever' label='Fever' onChange={chooseCheckbox} name='fever' testId='fever' />
-            <Checkbox value='Cough' label='Cough' onChange={chooseCheckbox} name='Cough' testId='Cough' />
-            <Checkbox value='breath' label='Shortness of breath' onChange={chooseCheckbox} name='breath' testId='breath' />
-            <Checkbox value='SoreThroat' label='Sore throat' onChange={chooseCheckbox} name='SoreThroat' testId='SoreThroat' />
-            <Checkbox value='Vomitting' label='Vomitting or diarrhea' onChange={chooseCheckbox} name='Vomitting' testId='Vomitting' />
-            <Checkbox value='chest' label='Pain in the chest' onChange={chooseCheckbox} name='chest' testId='chest' />
-            <Checkbox value='None' label='Pain in the chest' onChange={chooseCheckbox} name='none' testId='none' />
+            {
+               Object.keys(symptoms).map(function(key, index) {
+                return <Checkbox value={key} label={symptoms[key]} onChange={chooseCheckbox} name={key} testId={key} key={`${key}-${index}`} />
+              })
+            }
         </ChooseSection>
 
         <FormFooter>
@@ -67,37 +83,6 @@ const MyForm = () => (
     )}
   </Form>
 );
-
-const Wrapper = styled.div`
-    text-align: left;
-    width: 70%;
-    margin-top: 40px
-`;
-
-const Title = styled.h2`
-    color: #172B4D;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0px;
-    margin-bottom: 8px;
-`;
-
-const TextInfo = styled.p`
-    font-family: SF UI Text;
-    font-size: 14px;
-    line-height: 20px;
-    color: #505F79;
-`;
-
-const CustomForm = () => {
-    return (
-        <Wrapper>
-            <Title>Basic information</Title>
-            <TextInfo>Please provide basic information to help us assess your overall health situation.</TextInfo>
-            <MyForm />
-        </Wrapper>
-    )
 }
 
-export default CustomForm;
+export default SymptomsForm;
