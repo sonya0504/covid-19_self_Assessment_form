@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Title from './Title.js';
 import TextInfo from './TextInfo';
 import Form, { Field, FormFooter } from '@atlaskit/form';
@@ -6,7 +6,6 @@ import Button from '@atlaskit/button';
 import TextField from '@atlaskit/textfield';
 import AgeTypes from './AgeTypes';
 import Tests from './Tests';
-import symptoms from './Symptoms';
 import Symptoms from './Symptoms';
 
 const SymptomsForm = () => {

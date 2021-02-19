@@ -1,5 +1,6 @@
 import React from 'react';
 import SectionMessage from '../../components/SectionMessage';
+import ResponseSection from '../../components/ResponseSection';
 
 const confirmationMessage = {
     title: "Thank you! We’ll be in touch",
@@ -15,7 +16,7 @@ const ConfirmationView = () => {
                 appearance={confirmationMessage.appearance}
                 paragraf={confirmationMessage.paragraf}
             />
-            Summary View - będzie w nieodległej przyszłości :D
+            <ResponseSection />            
         </>
     )
 }
