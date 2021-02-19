@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'SF UI Display';
-  src: local('SF UI Display'), url(./fonts/sf-ui-display-medium-58646be638f96.otf) format('truetype');
+  src: local('SF UI Display'), url(../.././fonts/sf-ui-display-medium-58646be638f96.otf) format('truetype');
 }
 
 @font-face {
   font-family: 'SF UI Text';
-  src: local('SF UI Text'), url(./fonts/SFUIText-Regular.ttf) format('truetype');
+  src: local('SF UI Text'), url(../.././fonts/SFUIText-Regular.ttf) format('truetype');
 }
 
 .App {

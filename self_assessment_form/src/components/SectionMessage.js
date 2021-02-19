@@ -1,18 +1,24 @@
 import React from 'react';
 import SectionMessage from '@atlaskit/section-message';
+import styled from 'styled-components';
 
-export default () => (
-  <SectionMessage
-    title="Call 911 if you’re experincing any severe symptoms"
-    appearance="warning"
-    actions={[
-      {
-        key: '1',
-        href: '#',
-        text: 'Learn more',
-      },
-    ]}
+const SectionMessageWrapper = styled.div`
+    text-align: left;
+    width: 70%;
+    margin-top: 30px;
+`;
+
+export default ({ title, appearance, action, paragraf}) => (
+  <SectionMessageWrapper>
+    <SectionMessage
+      title={title}
+      appearance={appearance}
+      actions={[
+        {action},
+      ]}
   >
-    <p>This form was designed to help you get a general overview of your health. If you’re experiencing severe difficulty breathing, chest pain, feeling of confusion or losing conciousness, please reach out to a medical professional.</p>
+    <p>{paragraf}</p>
   </SectionMessage>
+  </SectionMessageWrapper>
+  
 );
