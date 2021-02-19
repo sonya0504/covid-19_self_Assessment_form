@@ -22,8 +22,12 @@ h2 {
 }
 
 p {
-  font-family: SF UI Text;
+  font-family: 'SF UI Text';
   font-size: 14px;
   line-height: 20px;
   color: #505F79;
+}
+
+.mt {
+  margin-top: 42px
 }

@@ -15,6 +15,7 @@ const ConfirmationView = () => {
                 title={confirmationMessage.title}
                 appearance={confirmationMessage.appearance}
                 paragraf={confirmationMessage.paragraf}
+                key={`${confirmationMessage.title}-${confirmationMessage.appearance}`}
             />
             <ResponseSection />            
         </>

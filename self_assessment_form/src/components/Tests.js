@@ -41,19 +41,19 @@ const Tests = () => {
   );
 
   return (
-    <ChooseSection title="Have you been tested for COVID‑19 in the last 14 days?" isRequired={true} >
-        {tests.map(test => (
-                <Radio
-                  isChecked={test.value === testValue}
-                  onChange={onChangeTest}
-                  name={test.name}
-                  value={test.value}
-                  label={test.label}
-                  onClick={() => setTestValue(test.value)}
-                  key={`${test.value}${test.name}${test.id}`}
-                />
-          ))}
-        </ChooseSection>
+    <>
+      {tests.map(test => (
+        <Radio
+          isChecked={test.value === testValue}
+          onChange={onChangeTest}
+          name={test.name}
+          value={test.value}
+          label={test.label}
+          onClick={() => setTestValue(test.value)}
+          key={`${test.value}${test.name}${test.id}`}
+          />
+        ))}
+      </>
   )
 }
 

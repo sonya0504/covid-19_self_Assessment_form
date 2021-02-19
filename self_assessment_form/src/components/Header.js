@@ -12,7 +12,7 @@ const HeaderContainer = styled.header`
     width: 100%;
 `;
 
-const BackButton = styled.a`
+const BackButton = styled.div`
     color: #42526E;
     font-size: 16px;
     line-height: 32px;

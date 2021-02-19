@@ -21,6 +21,7 @@ const FormView = () => {
                 appearance={warningMessage.appearance}
                 action={warningMessage.actions}
                 paragraf={warningMessage.paragraf}
+                key={`${warningMessage.title}-${warningMessage.appearance}`}
             />
             <FormSection /> 
         </>

@@ -18,15 +18,14 @@ const Symptoms = () => {
     }, [])
 
     return (
-        <ChooseSection title="Do you have any of the following symptoms?" isRequired={true}>
-            {
-                Object.keys(symptoms).map(function(key, index) {
-                    return <Checkbox value={key} label={symptoms[key]} onChange={(e) => console.log("checkbox")} name={key} testId={key} key={`${key}-${index}`} />
-                })
-            }
-        </ChooseSection>
-    )
-    
+      <>
+        {
+          Object.keys(symptoms).map(function(key, index) {
+            return <Checkbox value={key} label={symptoms[key]} onChange={(e) => console.log("checkbox")} name={key} testId={key} key={`${key}-${index}`} />
+            })
+          }
+      </>
+    ); 
 }
 
 export default Symptoms;

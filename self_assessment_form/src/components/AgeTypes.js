@@ -1,6 +1,5 @@
 import React, { useState, useCallback } from 'react';
 import { Radio } from '@atlaskit/radio';
-import ChooseSection from './ChooseSection';
 
 const ageTypes = [
   {
@@ -41,19 +40,18 @@ const onChangeAge = useCallback(
 );
 
   return (
-    <ChooseSection title='How old are you?' isRequired={true} >
-        {ageTypes.map(item => (
-                <Radio
-                  isChecked={item.value === ageValue}
-                  onChange={onChangeAge}
-                  name={item.name}
-                  value={item.value}
-                  label={item.label}
-                  onClick={() => setAgeValue(item.value)}
-                  key={`${item.value}${item.name}${item.id}`}
-                />
-          ))}
-        </ChooseSection>
+    <>
+      {ageTypes.map(item => (
+        <Radio
+          isChecked={item.value === ageValue}
+          onChange={onChangeAge}
+          name={item.name}
+          value={item.value}
+          label={item.label}
+          key={`${item.value}${item.name}${item.id}`}
+        />
+      ))}
+    </>
   );
 }
 

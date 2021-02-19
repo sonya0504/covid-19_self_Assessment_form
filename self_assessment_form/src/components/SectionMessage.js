@@ -16,9 +16,9 @@ export default ({ title, appearance, action, paragraf}) => (
       actions={[
         {action},
       ]}
-  >
-    <p>{paragraf}</p>
-  </SectionMessage>
+    >
+      <p>{paragraf}</p>
+    </SectionMessage>
   </SectionMessageWrapper>
   
 );
