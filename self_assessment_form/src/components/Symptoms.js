@@ -3,7 +3,7 @@ import ChooseSection from './ChooseSection';
 import Checkbox from '@atlaskit/checkbox';
 import axios from 'axios';
 
-const Symptoms = () => {
+const Symptoms = ({ onChangeHandler }) => {
 
     const [symptoms, setSymptoms] = useState([]);
     
@@ -21,7 +21,7 @@ const Symptoms = () => {
       <>
         {
           Object.keys(symptoms).map(function(key, index) {
-            return <Checkbox value={key} label={symptoms[key]} onChange={(e) => console.log("checkbox")} name={key} testId={key} key={`${key}-${index}`} />
+            return <Checkbox value={symptoms[key]} label={symptoms[key]} onChange={onChangeHandler} name={key} testId={key} key={`${key}-${index}`} />
             })
           }
       </>

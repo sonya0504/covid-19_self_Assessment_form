@@ -29,7 +29,7 @@ const tests = [
   },
 ];
 
-const Tests = () => {
+const Tests = ({ onChangeHandler }) => {
 
   const [testValue, setTestValue] = useState('positive');
 
@@ -51,6 +51,7 @@ const Tests = () => {
           label={test.label}
           onClick={() => setTestValue(test.value)}
           key={`${test.value}${test.name}${test.id}`}
+          onClick={onChangeHandler}
           />
         ))}
       </>

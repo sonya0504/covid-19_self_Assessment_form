@@ -28,7 +28,7 @@ const ageTypes = [
   },
 ];
 
-const AgeTypes = () => {
+const AgeTypes = ({ onChangeHandler }) => {
 
 const [ageValue, setAgeValue] = useState('young');
 
@@ -49,6 +49,7 @@ const onChangeAge = useCallback(
           value={item.value}
           label={item.label}
           key={`${item.value}${item.name}${item.id}`}
+          onClick={onChangeHandler}
         />
       ))}
     </>
