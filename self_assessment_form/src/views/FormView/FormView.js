@@ -3,6 +3,7 @@ import SectionMessage from '../../components/SectionMessage';
 import FormSection from '../../components/FormSection';
 
 const warningMessage = {
+    id: 1,
     title: "Call 911 if you’re experincing any severe symptoms",
     appearance: "error",
     actions: {
@@ -21,7 +22,7 @@ const FormView = () => {
                 appearance={warningMessage.appearance}
                 action={warningMessage.actions}
                 paragraf={warningMessage.paragraf}
-                key={`${warningMessage.title}-${warningMessage.appearance}`}
+                key={`${warningMessage.id}-${warningMessage.appearance}`}
             />
             <FormSection /> 
         </>
