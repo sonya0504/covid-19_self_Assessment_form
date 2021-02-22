@@ -1,6 +1,7 @@
 import React from 'react';
 import SectionMessage from '../../components/SectionMessage';
 import ResponseSection from '../../components/ResponseSection';
+import { useParams } from 'react-router';
 
 const confirmationMessage = {
     id: 1,
