@@ -28,16 +28,16 @@ const ageTypes = [
   },
 ];
 
-const AgeTypes = ({ onChangeHandler }) => {
+const Years = ({ onChangeHandler }) => {
 
-const [ageValue, setAgeValue] = useState('young');
+  const [ageValue, setAgeValue] = useState('young');
 
-const onChangeAge = useCallback(
-  ({ currentTarget: { value } }, e) => {
-    setAgeValue(value);
-  },
-  [setAgeValue],
-);
+  const onChangeAge = useCallback(
+    ({ currentTarget: { value } }, e) => {
+      setAgeValue(value);
+    },
+    [setAgeValue],
+  );
 
   return (
     <>
@@ -56,4 +56,4 @@ const onChangeAge = useCallback(
   );
 }
 
-export default AgeTypes;
+export default Years;

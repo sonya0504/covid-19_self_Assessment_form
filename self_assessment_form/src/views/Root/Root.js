@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AppContext from '../../context';
 import './App.css';
-import { BrowserRouter, Route, Switch, useHistory } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import FormView from '../FormView/FormView';
 import ConfirmationView from '../ConfirmationView/ConfirmationView';
 import Header from '../../components/Header';
@@ -11,37 +11,34 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 20px;
 `;
 
 const Root = () => {
-    // not working
-    const history = useHistory();
-    const navigateTo = () => history.push('/confirmation');
 
     const responsesData = {
             name: '',
             email: '',
             department: '',
-            symptoms: [],
-            ageTypes: '18 or younger',
-            tests: 'Yes, and my result was positive'
+            years: '18 or younger',
+            test: 'Yes, and my result was positive',  
+            symptoms: [],              
         }
 
-    const addConfirm = (data, e) => {
+    const [state, setState] = useState(responsesData);
 
+    const addConfirm = (data) => {
         data.symptoms = responsesData.symptoms;
-        data.ageTypes = responsesData.ageTypes;
-        data.tests = responsesData.tests;
+        data.years = responsesData.years;
+        data.test = responsesData.test;
+        setState(data);
+        console.log('state', state);
 
-        history.push({
-            pathname: '/confirmation',
-            data: { data }
-          })
     }
 
     const contextElement = {
         addConfirm: addConfirm,
-        responsesData: responsesData,
+        responsesData: state,
     }
 
     return (

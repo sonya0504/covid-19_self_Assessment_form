@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import AppContext from '../context';
 import Title from './Title';
 import Response from './Response';
 
@@ -7,32 +8,32 @@ const responseData = [
     {
         id: 1,
         question: 'Your name',
-        answer: 'John Doe',
+        answer: '',
     },
     {
         id: 2,
         question: 'Company email address',
-        answer: 'john.doe@deviniti.com',
+        answer: '',
     },
     {
         id: 3,
         question: 'Department',
-        answer: 'AtlasianTeam',
+        answer: '',
     },
     {
         id: 4,
         question: 'How old are you?',
-        answer: '18 or younger',
+        answer: '',
     },
     {
         id: 5,
         question: 'Have you been tested for COVID‑19 in the last 14 days?',
-        answer: 'No, I have not been tested yet',
+        answer: '',
     },
     {
         id: 6,
         question: 'Do you have any of the following symptoms?',
-        answer: 'Fever, Cough, Sore throat, Pain in the chest',
+        answer: '',
     }
 ]
     
@@ -45,17 +46,22 @@ const ResponsesWrapper = styled.div`
 `;
 
 const ResponseSection = () => {
+
+    const responses = useContext(AppContext).responsesData;
+
+    Object.keys(responses).map(function(key, index) {
+        responseData[index].answer = responses[key];
+        return;
+        })
+
     return (
-        <ResponsesWrapper>
-            <Title>Your responses</Title>
-        {
-            responseData.map(res => {
-                return (
-                    <Response question={res.question} answer={res.answer} key={res.id} />
-                )
-            })
-        }
-        </ResponsesWrapper>
+            <ResponsesWrapper>
+                <Title>Your responses</Title> 
+                    {responseData.map(res => {
+                        return <Response question={res.question} answer={res.answer} key={res.id} />
+                    })}
+                </ResponsesWrapper>
+        
     );
 }
 

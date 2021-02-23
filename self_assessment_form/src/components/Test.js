@@ -1,6 +1,5 @@
 import React, { useState, useCallback } from 'react';
 import { Radio } from '@atlaskit/radio';
-import ChooseSection from './ChooseSection';
 
 const tests = [
   {
@@ -29,7 +28,7 @@ const tests = [
   },
 ];
 
-const Tests = ({ onChangeHandler }) => {
+const Test = ({ onChangeHandler }) => {
 
   const [testValue, setTestValue] = useState('positive');
 
@@ -58,4 +57,4 @@ const Tests = ({ onChangeHandler }) => {
   )
 }
 
-export default Tests;
+export default Test;

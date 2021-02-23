@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import ChooseSection from './ChooseSection';
 import Checkbox from '@atlaskit/checkbox';
 import axios from 'axios';
 

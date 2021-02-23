@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import styled from 'styled-components';
 import Title from './Title.js';
 import TextInfo from './TextInfo';
 import Form, { 
@@ -9,13 +10,27 @@ import Form, {
 } from '@atlaskit/form';
 import Button from '@atlaskit/button';
 import TextField from '@atlaskit/textfield';
-import AgeTypes from './AgeTypes';
-import Tests from './Tests';
+import Years from './Years';
+import Test from './Test';
 import Symptoms from './Symptoms';
 import AppContext from '../context';
 
+const RadioWrapper = styled.div`
+  margin-top: 24px;
+`;
+
 const SymptomsForm = () => {
   
+  const validate = (value) => {
+    if (!value) {
+      return;
+    }
+
+    if (value.length < 2) {
+      return 'TOO_SHORT';
+    }
+  };
+
   return (
     <AppContext.Consumer>
       {context => (
@@ -26,15 +41,14 @@ const SymptomsForm = () => {
                   name="username" 
                   defaultValue="" 
                   label="Your name"
+                  validate={validate}
                   >
                     {({ fieldProps, error }) => (
                       <Fragment>
                         <TextField {...fieldProps} />
-                        {error && (
                           <ErrorMessage>
                             Please enter your name.
                           </ErrorMessage>
-                        )}
                       </Fragment>
                       )}
                 </Field>
@@ -43,6 +57,7 @@ const SymptomsForm = () => {
                   name="email" 
                   defaultValue="" 
                   label="Company email address"
+                  validate={validate}
                 >
                   {({ fieldProps, error }) => (
                       <Fragment>
@@ -60,6 +75,7 @@ const SymptomsForm = () => {
                   name="department" 
                   defaultValue="" 
                   label="Department"
+                  validate={validate}
                 >
                   {({ fieldProps, error }) => (
                       <Fragment>
@@ -72,18 +88,22 @@ const SymptomsForm = () => {
                       </Fragment>
                       )}
                 </Field>
+                
+                <RadioWrapper>
+                  <Field name='years' label="How old are you?" isRequired>
+                    {({ fieldProps }) => (
+                      <Years {...fieldProps} onChangeHandler={(event) => context.responsesData.years = event.target.value} />
+                    )}
+                  </Field>
+                </RadioWrapper>
 
-                <Field name='ageTypes' label="How old are you?" isRequired>
-                  {({ fieldProps }) => (
-                    <AgeTypes {...fieldProps} onChangeHandler={(event) => context.responsesData.ageTypes = event.target.value} />
-                  )}
-                </Field>
-
-                <Field name='tests' label="Have you been tested for COVID‑19 in the last 14 days?" isRequired>
-                  {({ fieldProps }) => (
-                    <Tests {...fieldProps} onChangeHandler={(event) => context.responsesData.tests = event.target.value} />
-                  )}
-                </Field>
+                <RadioWrapper>
+                  <Field name='test' label="Have you been tested for COVID‑19 in the last 14 days?" isRequired>
+                    {({ fieldProps }) => (
+                      <Test {...fieldProps} onChangeHandler={(event) => context.responsesData.test = event.target.value} />
+                    )}
+                  </Field>
+                </RadioWrapper>
 
                 <Title className='mt'>COVID-19 symptoms</Title>
                 <TextInfo>Please reflect on any disturbing symptoms you’re experiencing now or have been in the last 14 days.</TextInfo>
@@ -95,9 +115,9 @@ const SymptomsForm = () => {
                 </CheckboxField>
               
                 <FormFooter>
-                    <Button type="submit" appearance="primary">
-                        Submit
-                    </Button>
+                      <Button type="submit" appearance="primary">
+                          Submit
+                      </Button>
                 </FormFooter>
                 
               </form>
