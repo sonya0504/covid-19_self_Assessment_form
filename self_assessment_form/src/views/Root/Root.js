@@ -32,8 +32,6 @@ const Root = () => {
         data.years = responsesData.years;
         data.test = responsesData.test;
         setState(data);
-        console.log('state', state);
-
     }
 
     const contextElement = {
