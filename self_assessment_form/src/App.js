@@ -1,10 +1,10 @@
 import React from 'react';
-import DeclarationView from './components/DeclarationView';
+import Root from './views/Root/Root';
 
 function App() {
   return (
     <div className="App">
-      <DeclarationView />
+      <Root />
     </div>
   );
 }
